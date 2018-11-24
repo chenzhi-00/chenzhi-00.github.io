@@ -1,361 +1,257 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<style type="text/css">
-			*{
-				margin: 0;
-				padding: 0;
-			}
-			ul,li{
-				list-style: none;
-			}
-			.bj{
-				width: 256px;
-				height: 536px;
-				background: url(img/iPhone.png);
-				margin: auto;
-				position: relative;
-				
-			}
-			.lyxx{
-				width: 216px;
-				height: 340px;
-				background: #F5F5F5;
-				position: absolute;
-				top: 77px;
-				left: 21px;
-				overflow-y:auto;
-			}
-			.lt{
-				width: 216px;
-				height: 42px;
-				position: absolute;
-				top: 412px;
-				left: 21px;
-				/*background: lemonchiffon;*/
-			}
-			textarea{
-				width: 127px;
-				height: 28px;
-				border-radius: 5px;
-				resize: none;
-				margin-top: 10px;
-			}
-			.qh{
-				width: 23px;
-				height: 23px;
-				margin-bottom: 2px;
-				margin-left: 8px;
-			}
-			.fs{
-				width: 43px;
-				height: 31px;
-				display: inline-block;
-				/*background: red;*/
-			}
-			.ck{
-				width: 216px;
-				min-height: 30px;
-				/*background: aquamarine;*/
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>贪吃蛇</title>
+<style>
+*{ margin:0; padding:0;}
+li{ list-style:none;}
+#main{ margin:20px auto; position:relative;}
+#gird{ border:1px #000 solid; border-bottom:none; border-right:none; overflow:hidden;}
+#gird li{ border:1px #000 solid; border-top:none; border-left:none; float:left;}
+#score{ float:right;}
+.headSnake{ background:red; position:absolute;}
+.bodySnake{ background:red; position:absolute; opacity:0.5; filter:alpha(opacity=50);}
+#food{ background:blue; position:absolute;}
+</style>
+</head>
 
-				
-				
-			}
-			.tx1{
-				margin-top: 3px;
-				margin-left: 10px;
-				float: left;
-			}
-			.le{
-				display: inline-block;
-				width:155px;
-				min-height: 30px;
-				word-break: break-all;
-				border-radius: 5px;
-				margin-top: 10px;
-			}
-			.le1{
-				
-				float: left;
-				background: #FFFFFF;
-			}
-			.tx2{
-				margin-top: 3px;
-				margin-right: 10px;
-				float: right;
-			}
-			.le2{
-				
-				float: right;
-				background: #9EEA6A;
-				
-			}
-			#ltjm{
-				display: none;
-			}
-			#ann{
-				width: 43px;
-				height: 43px;
-				/*background: lemonchiffon;*/
-				border-radius: 50%;
-				position: absolute;
-				top: 475px;
-				left: 107px;
-				
-			}
-			#kjbj{
-				font-size: 36px;
-				background: #111;
-				color: #ccc;
-				width: 216px;
-				height: 384px;
-				position: absolute;
-				top: 77px;
-				left: 21px;
-				line-height: 100px;
-				text-align: center;
-			}
-			#kaiji{
-				background: #666;
-				width: 216px;
-				height: 384px;
-				position: absolute;
-				top: 77px;
-				left: 21px;
-				
-			}
-			#box1{
-				width: 270px;
-				height: 65px;
-				margin-top: 150px;
-				font-size: 38px;
-				background: #000;
-				color: rgb(0,0,0);
-            	background-image:-webkit-linear-gradient(left,#000 0,#fff 20px,#000 40px);
-				-webkit-background-clip:text; 
-            	-webkit-text-fill-color:transparent;
-				/*transition: 5s;*/
-			}
-			
-			/*枫叶*/
-			#box2{
-				width: 160px;
-				height: 160px;
-				/*transition: 50s;*/
-				margin: 40px 30px;
-			}
-			.fy{
-				float: left;
-				display: inline-block;
-				width: 70px;
-				height: 70px;
-				margin: 5px;
-				background: -webkit-linear-gradient(left,#D93436,#670554);
-				
-			}
-			.fy:nth-of-type(1){
-				border-radius: 0 80% 0;
-			}
-			.fy:nth-of-type(2){
-				border-radius: 80% 0 80%;
-			}
-			.fy:nth-of-type(3){
-				border-radius: 80% 0 80%;
-			}
-			.fy:nth-of-type(4){
-				border-radius: 0 80% 0;
-			}
-			#box2:hover{
-				transform: rotate(3600deg);
-			}
-			
-		</style>
-	</head>
-	<body>
-		<div class="bj">
-			<div id="ltjm">
-				<div class="lyxx">
-					<div class="ck"><!--//聊天窗口-->
-						<!--<img class="tx1" src="img/qq1.gif"/> <!--//头像-->
-						<!--<span class="le"></span>   <!--//内容-->
-					</div>
-					<!--<div class="ck">
-						<img class="tx2" src="img/qq2.gif"/>
-						<span class="ri"></span>
-					</div>-->
-				</div>
-				<div class="lt">
-					<img class="qh" src="img/qq1.gif"/>   <!--//头像切换-->
-					<textarea></textarea>   <!--聊天输入-->
-					<span class="fs"></span>   <!--//发送按钮-->
-				</div>
-			</div>
-			<div id="kaiji">
-				<div id="box1">
-					DevTalking
-				</div>
-			</div>
-			<!--开机前显示时间-->
-			
-			<div id="kjbj">
-				<div id="rqsj"></div>
-				<div id="box2">
-					<span class="fy"></span>
-					<span class="fy"></span>
-					<span class="fy"></span>
-					<span class="fy"></span>
-				</div>
-			</div>
-			
-			
-			<!--开机-->
-			<div id="ann"></div>
-		</div>
-		
-		<script type="text/javascript">
-			window.onload=function(){
-				var otext = document.getElementsByTagName("textarea")[0];
-			var ofsxx =document.getElementsByClassName("fs")[0];
-			var ospan = document.getElementsByClassName("le")[0];
-			var ock   =document.getElementsByClassName("ck")[0];
+<body>
+<div id="main">
+	<ul id="gird"></ul>
+    <input type="button" value="开始" id="startBtn">
+    <div id="score">积分:0分</div>
+    <div id="snake">
+    	<!--<div class="headSnake"></div>
+        <div class="bodySnake"></div>
+        <div class="bodySnake"></div>
+        <div class="bodySnake"></div>
+        <div class="bodySnake"></div>-->
+    </div>
+</div>
+<script>
 
-			var i=0;
-				//点击发送消息事件
-			ofsxx.onclick = function (){
-				if(otext.value.trim() == "") {
-						alert("给我留言吧");
-						return false;
-					}
-				var dd=otext.value;
-				ock.innerHTML += "<img class='tx"+(i%2+1)+"' src='img/qq"+(i%2+1)+".gif'/><span class='le"+(i%2+1)+"'>"+dd+"</span>";
-				otext.value = "";
+var oMain = document.getElementById('main');
+var oGird = document.getElementById('gird');
+var aLi = oGird.getElementsByTagName('li');
+var oStartBtn = document.getElementById('startBtn');
+var oScore = document.getElementById('score');
+var oSnake = document.getElementById('snake');
+var aDivSnake = oSnake.getElementsByTagName('div');
+var sizeGird = 20;
+var cols = 25;
+var rows = 25;
+var dir = 39;   //→
+var numScore = 0;
+var headSnake = null;
+var oFood = null;
+var timer = null;
+init();
+
+function init(){  //初始化整个游戏
+	createGird();
+	bindBtn();
+}
+
+function createGird(){  //创建网格
+	var len = cols * rows;
+	var oFrag = document.createDocumentFragment();
+	oMain.style.width = cols * (sizeGird + 1) + 1 + 'px';
+	for(var i=0;i<len;i++){
+		var oLi = document.createElement('li');
+		oLi.style.width = sizeGird + 'px';
+		oLi.style.height = sizeGird + 'px';
+		oLi.index = i;
+		oFrag.appendChild(oLi);
+	}
+	oGird.appendChild(oFrag);
+}
+function bindBtn(){    //绑定按钮操作
+	var onoff = true;
+	var first = true;
+	oStartBtn.focus();
+	oStartBtn.onclick = function(){
+		if(onoff){
+			this.value = '暂停';
+			if(first){
+				first = false;
+				initSnake();
 			}
-			//点击切换图片事件
-			var oImg = document.getElementsByClassName("qh")[0];
-			var flag = true;
-//				3.绑定点击事件切换图标
-			oImg.onclick = function(){
-				i++;
-//				console.log(i);
-//					4.切换头像
-//						4-1判断当前头像
-				if(flag){
-					
-					this.src = "img/qq2.gif";
-					
-				}else{
-					
-					this.src = "img/qq1.gif";						
-					
-				}
-				
-//					5.flag取反
-				flag = !flag;
-					
-					
+			else{
+				playSnake();
 			}
-			
-			
-//			双击按钮开机事件
-			var okjbj =document.querySelector("#kjbj");
-			var oann = document.querySelector("#ann");
-			var oltjm = document.querySelector("#ltjm");
-			var okaiji = document.querySelector("#kaiji");
-			oann.ondblclick=function(){
-
-				okjbj.style.display="none";
-				
-				okaiji.style.display="inline-block"
-				
-				var obox = document.querySelector("#box1");
-				var b = 0;
-//				clearInterval(timer2);
-				timer2 = setInterval(function(){
-					b++;
-					obox.style.backgroundPosition = b+"px 0, -100px -100px";
-					
-					if(b==400){
-						oltjm.style.display="inline-block";
-						okaiji.style.display="none";
-					}
-				},10);
-			}
-			
-//				2.获取元素
-				var orqsj = document.getElementById("rqsj");
-				var obox2 = document.querySelector("#box2");
- //				3.设置定时器
-				var timer = null;
-				var num = 0;
-				var a= 0;
-				clearInterval(timer);	//定时器1(可替换为延时器1)
-//				clearTimeout(timer);	//延时器1
-				
-				timer = setInterval(getNowTime,1000);	//定时器2(可替换为延时器2)
-				
-//				clearInterval(timer1);
-				timer1 = setInterval(function(){
-					a+=10;
-					obox2.style.transform="rotate("+a+"deg)";
-				},100);
-				function getNowTime(){
-					
-//					timer = setTimeout(getNowTime,1000);	//延时器2
-					
-//					console.log(num++);
-					
-//					4.获取当前时间
-					var today = new Date();
-
-//					--获取年份
-					var oYear = today.getFullYear();	//2018
-
-//					--获取月份
-					var oMonth = today.getMonth()+1;	//10
-
-//					--获取日期
-					var oDate = today.getDate();	//24
-
-//					--获取星期
-					var oDay = today.getDay();   	//3
-
-//					--获取小时
-					var oHour = today.getHours();	//15
-
-//					--获取分钟
-					var oMinute = today.getMinutes();//27
-
-//					--获取秒
-					var oSecond = today.getSeconds();//39
-
-					//2018-10-24 星期三  15:33:25
-
-					var weekArr = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
-
-					orqsj.innerHTML = addZero(oHour)+":"+addZero(oMinute)+":"+addZero(oSecond);
-					
-				}
-				getNowTime();
-				
-//				加零函数(由于某些情况会出现一位数字)
-				function addZero(num){
-					
-					if(num<10){
-						
-						return "0"+num;
-						
-					}else{
-						
-						return num;
-						
-					}
-					
-				}
-			
 		}
-			
-		</script>
-	</body>
+		else{
+			this.value = '开始';
+			stopSnake();
+		}
+		onoff = !onoff;
+	};
+}
+
+function initSnake(){    //初始贪吃蛇
+	var initPos = 5;
+	headSnake = document.createElement('div');
+	headSnake.className = 'headSnake';
+	headSnake.style.width = sizeGird + 'px';
+	headSnake.style.height = sizeGird + 'px';
+	headSnake.style.left = aLi[initPos].offsetLeft + 'px';
+	headSnake.style.top = aLi[initPos].offsetTop + 'px';
+	
+	headSnake.index = initPos;
+	
+	oSnake.appendChild(headSnake);
+	startMove();
+	bindSnake();
+	createfood();
+}
+function startMove(){    //让贪吃蛇动起来
+	timer = setInterval(function(){
+		
+		var bBtn = true;
+		
+		for(var i=aDivSnake.length-1;i>0;i--){
+			aDivSnake[i].style.left = aDivSnake[i-1].offsetLeft + 'px';
+			aDivSnake[i].style.top = aDivSnake[i-1].offsetTop + 'px';
+			aDivSnake[i].index = aDivSnake[i-1].index;
+		}
+		
+		switch(dir){
+			case 37:
+				headSnake.style.left = headSnake.offsetLeft - (sizeGird + 1) + 'px';			
+				headSnake.index = headSnake.index - 1;
+			break;
+			case 38:
+				headSnake.style.top = headSnake.offsetTop - (sizeGird + 1) + 'px';			
+				headSnake.index = headSnake.index - cols;
+			break;
+			case 39:
+				headSnake.style.left = headSnake.offsetLeft + (sizeGird + 1) + 'px';			
+				headSnake.index = headSnake.index + 1;
+			break;
+			case 40:
+				headSnake.style.top = headSnake.offsetTop + (sizeGird + 1) + 'px';			
+				headSnake.index = headSnake.index + cols;
+			break;
+		}
+		
+		for(var i=0;i<aDivSnake.length;i++){
+			if( pz( headSnake , aDivSnake[i] ) && headSnake != aDivSnake[i] ){
+				gameOver();
+			}
+		}
+		
+		if( pz(headSnake , oFood) ){
+			addSnake();
+			setScore();
+			createfood();
+		}
+		
+		for(var i=0;i<aLi.length;i++){
+			if( pz( headSnake , aLi[i] ) ){
+				bBtn = false;
+			}
+		}
+		if(bBtn){
+			gameOver();
+		}
+		
+	},200);
+}
+
+function bindSnake(){    //键盘控制贪吃蛇
+	document.onkeydown = function(ev){
+		var ev = ev || window.event;
+		
+		switch(ev.keyCode){
+			case 37:
+				dir = 37;
+			break;
+			case 38:
+				dir = 38;
+			break;
+			case 39:
+				dir = 39;
+			break;
+			case 40:
+				dir = 40;
+			break;
+		}
+	};
+}
+
+function createfood(){   //创建食物
+	oFood = document.createElement('div');
+	var arr = [];
+	for(var i=0;i<aLi.length;i++){
+		if( fitler(aLi[i]) ){
+			arr.push( aLi[i] );
+		}
+	}
+	
+	function fitler(li){
+		for(var i=0;i<aDivSnake.length;i++){
+			if( aDivSnake[i].index == li.index ){
+				return false;
+			}
+		}
+		return true;
+	}
+	oFood.id = 'food';
+	oFood.style.width = sizeGird + 'px';
+	oFood.style.height = sizeGird + 'px';
+	var randomPos = Math.floor(Math.random() * arr.length);
+	oFood.style.left = arr[randomPos].offsetLeft + 'px';
+	oFood.style.top = arr[randomPos].offsetTop + 'px';
+	oMain.appendChild(oFood);
+}
+
+function addSnake(){    //添加贪吃蛇
+	oFood.id = '';
+	oSnake.appendChild(oFood);
+	oFood.className = 'bodySnake';
+}
+
+function setScore(){   //设置积分
+	numScore = numScore + 10;
+	oScore.innerHTML = '积分:' + numScore + '分';
+	if(numScore>30){
+	
+	}
+}
+
+function gameOver(){   //游戏结束
+	alert('游戏结束');
+	window.location.reload();
+}
+
+function stopSnake(){   //暂停贪吃蛇
+	clearInterval(timer);
+}
+function playSnake(){   //开始贪吃蛇
+	startMove();
+}
+
+function pz(obj1,obj2){
+	var L1 = obj1.offsetLeft;
+	var R1 = obj1.offsetLeft + obj1.offsetWidth;
+	var T1 = obj1.offsetTop;
+	var B1 = obj1.offsetTop + obj1.offsetHeight;
+	
+	var L2 = obj2.offsetLeft;
+	var R2 = obj2.offsetLeft + obj2.offsetWidth;
+	var T2 = obj2.offsetTop;
+	var B2 = obj2.offsetTop + obj2.offsetHeight;
+	
+	if( L1 > R2 || R1 < L2 || T1 > B2 || B1 < T2 ){
+		return false;
+	}
+	else{
+		return true;
+	}
+	
+}
+
+</script>
+</body>
 </html>
