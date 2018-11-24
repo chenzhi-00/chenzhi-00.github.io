@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="jq/jquery.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul,li{
+				list-style: none;
+			}
+			.box:nth-child(1){
+				background: red;
+			}
+			.box:nth-child(2){
+				background: yellow;
+			}
+			.box:nth-child(3){
+				background: lightblue;
+			}
+			.box:nth-child(4){
+				background: lightgreen;
+			}
+			.box:nth-child(5){
+				background: lightpink;
+			}
+			ul{
+				position: fixed;
+				right: 20px;
+				bottom: 50%;
+				margin-bottom: -150px;
+			}
+			li{
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background: #EEEEEE;
+				margin-bottom: 10px;
+			}
+			.active_btn{
+				background: black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">111</div>
+		<div class="box">222</div>
+		<div class="box">333</div>
+		<div class="box">444</div>
+		<div class="box">555</div>
+		<ul>
+			<li class="active_btn"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<script type="text/javascript">
+			$(function(){
+				$("div").each(function(i,ele){
+					$(ele).css("height",window.innerHeight);
+				})
+				
+//				点击li切屏
+				$("li").each(function(i1,ele1){
+					$(this).click(function(){
+						$(window).scrollTop(i1*window.innerHeight);
+						$("li").removeClass();
+						$(this).addClass("active_btn");
+					})
+				})
+//				窗口滚动事件
+				$(window).scroll(function(){
+					var gundongH=$(window).scrollTop();
+//					用已经滚动高度/整屏高度   取整数得到切换下标
+					var myIndex = Math.round(gundongH/window.innerHeight);
+						$("li").removeClass();
+						$("li").eq(myIndex).addClass("active_btn");
+					
+				})
+				
+			})
+			
+			
+		</script>
+	</body>
+</html>
