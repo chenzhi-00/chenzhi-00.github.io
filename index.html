@@ -4,155 +4,358 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
-			.box{
-				width: 600px;
-				height: 300px;
-				padding: 30px;
-				border: 1px solid red;
+			*{
+				margin: 0;
+				padding: 0;
 			}
+			ul,li{
+				list-style: none;
+			}
+			.bj{
+				width: 256px;
+				height: 536px;
+				background: url(img/iPhone.png);
+				margin: auto;
+				position: relative;
+				
+			}
+			.lyxx{
+				width: 216px;
+				height: 340px;
+				background: #F5F5F5;
+				position: absolute;
+				top: 77px;
+				left: 21px;
+				overflow-y:auto;
+			}
+			.lt{
+				width: 216px;
+				height: 42px;
+				position: absolute;
+				top: 412px;
+				left: 21px;
+				/*background: lemonchiffon;*/
+			}
+			textarea{
+				width: 127px;
+				height: 28px;
+				border-radius: 5px;
+				resize: none;
+				margin-top: 10px;
+			}
+			.qh{
+				width: 23px;
+				height: 23px;
+				margin-bottom: 2px;
+				margin-left: 8px;
+			}
+			.fs{
+				width: 43px;
+				height: 31px;
+				display: inline-block;
+				/*background: red;*/
+			}
+			.ck{
+				width: 216px;
+				min-height: 30px;
+				/*background: aquamarine;*/
+
+				
+				
+			}
+			.tx1{
+				margin-top: 3px;
+				margin-left: 10px;
+				float: left;
+			}
+			.le{
+				display: inline-block;
+				width:155px;
+				min-height: 30px;
+				word-break: break-all;
+				border-radius: 5px;
+				margin-top: 10px;
+			}
+			.le1{
+				
+				float: left;
+				background: #FFFFFF;
+			}
+			.tx2{
+				margin-top: 3px;
+				margin-right: 10px;
+				float: right;
+			}
+			.le2{
+				
+				float: right;
+				background: #9EEA6A;
+				
+			}
+			#ltjm{
+				display: none;
+			}
+			#ann{
+				width: 43px;
+				height: 43px;
+				/*background: lemonchiffon;*/
+				border-radius: 50%;
+				position: absolute;
+				top: 475px;
+				left: 107px;
+				
+			}
+			#kjbj{
+				font-size: 36px;
+				background: #111;
+				color: #ccc;
+				width: 216px;
+				height: 384px;
+				position: absolute;
+				top: 77px;
+				left: 21px;
+				line-height: 100px;
+				text-align: center;
+			}
+			#kaiji{
+				background: #666;
+				width: 216px;
+				height: 384px;
+				position: absolute;
+				top: 77px;
+				left: 21px;
+				
+			}
+			#box1{
+				width: 270px;
+				height: 65px;
+				margin-top: 150px;
+				font-size: 38px;
+				background: #000;
+				color: rgb(0,0,0);
+            	background-image:-webkit-linear-gradient(left,#000 0,#fff 20px,#000 40px);
+				-webkit-background-clip:text; 
+            	-webkit-text-fill-color:transparent;
+				/*transition: 5s;*/
+			}
+			
+			/*枫叶*/
+			#box2{
+				width: 160px;
+				height: 160px;
+				/*transition: 50s;*/
+				margin: 40px 30px;
+			}
+			.fy{
+				float: left;
+				display: inline-block;
+				width: 70px;
+				height: 70px;
+				margin: 5px;
+				background: -webkit-linear-gradient(left,#D93436,#670554);
+				
+			}
+			.fy:nth-of-type(1){
+				border-radius: 0 80% 0;
+			}
+			.fy:nth-of-type(2){
+				border-radius: 80% 0 80%;
+			}
+			.fy:nth-of-type(3){
+				border-radius: 80% 0 80%;
+			}
+			.fy:nth-of-type(4){
+				border-radius: 0 80% 0;
+			}
+			#box2:hover{
+				transform: rotate(3600deg);
+			}
+			
 		</style>
 	</head>
 	<body>
-		<div class="box">
-			<ul>
-				<li>
-					<button>-</button>
-					<span>0件</span>
-					<button>+</button>
-					4元  小计: <input type="text" name="" id="" value="" />
-				</li>
-				<li>
-					<button>-</button>
-					<span>0件</span>
-					<button>+</button>
-					34元  小计: <input type="text" name="" id="" value="" />
-				</li>
-				<li>
-					<button>-</button>
-					<span>0件</span>
-					<button>+</button>
-					12元  小计: <input type="text" name="" id="" value="" />
-				</li>
-				<li>
-					<button>-</button>
-					<span>0件</span>
-					<button>+</button>
-					8元  小计: <input type="text" name="" id="" value="" />
-				</li>
-				<li>
-					<button>-</button>
-					<span>0件</span>
-					<button>+</button>
-					7元  小计: <input type="text" name="" id="" value="" />
-				</li>
-			</ul>
-			<hr />
-			<button>商品总计</button>
-			<input type="text" name="" id="" value="" />
-			<button>商品总价</button>
-			<input type="text" name="" id="" value="" />
+		<div class="bj">
+			<div id="ltjm">
+				<div class="lyxx">
+					<div class="ck"><!--//聊天窗口-->
+						<!--<img class="tx1" src="img/qq1.gif"/> <!--//头像-->
+						<!--<span class="le"></span>   <!--//内容-->
+					</div>
+					<!--<div class="ck">
+						<img class="tx2" src="img/qq2.gif"/>
+						<span class="ri"></span>
+					</div>-->
+				</div>
+				<div class="lt">
+					<img class="qh" src="img/qq1.gif"/>   <!--//头像切换-->
+					<textarea></textarea>   <!--聊天输入-->
+					<span class="fs"></span>   <!--//发送按钮-->
+				</div>
+			</div>
+			<div id="kaiji">
+				<div id="box1">
+					DevTalking
+				</div>
+			</div>
+			<!--开机前显示时间-->
+			
+			<div id="kjbj">
+				<div id="rqsj"></div>
+				<div id="box2">
+					<span class="fy"></span>
+					<span class="fy"></span>
+					<span class="fy"></span>
+					<span class="fy"></span>
+				</div>
+			</div>
+			
+			
+			<!--开机-->
+			<div id="ann"></div>
 		</div>
 		
-		
 		<script type="text/javascript">
-			window.onload= function(){
-				var obutt = document.getElementsByTagName("button");
-				var ospa = document.getElementsByTagName("span");
-				var oinp = document.getElementsByTagName("input");
-				var a1 = 0;
-				var a2 = 0;
-				var a3 = 0;
-				var a4 = 0;
-				var a5 = 0;
-				var c=0;
-//				1
-				obutt[0].onclick = function(){
-					if(a1>0){
-						a1--;
-						ospa[0].innerHTML=a1+"件"
-						oinp[0].value= jisuan(a1,4);
+			window.onload=function(){
+				var otext = document.getElementsByTagName("textarea")[0];
+			var ofsxx =document.getElementsByClassName("fs")[0];
+			var ospan = document.getElementsByClassName("le")[0];
+			var ock   =document.getElementsByClassName("ck")[0];
+
+			var i=0;
+				//点击发送消息事件
+			ofsxx.onclick = function (){
+				if(otext.value.trim() == "") {
+						alert("给我留言吧");
+						return false;
 					}
-					return a1;
-				}
-				obutt[1].onclick = function(){
-					a1++;
-					ospa[0].innerHTML=a1+"件"
-						oinp[0].value= jisuan(a1,4);
-						return a1;
-				}
-//				2
-				obutt[2].onclick = function(){
-					if(a2>0){
-						a2--;
-						ospa[1].innerHTML=a2+"件"
-						oinp[1].value= jisuan(a2,34);
-					}
-					return a2;
-				}
-				obutt[3].onclick = function(){
-					a2++;
-					ospa[1].innerHTML=a2+"件"
-						oinp[1].value= jisuan(a2,34);
-						c = oinp[1].value
-						return a2;
-				}
-//				3
-				obutt[4].onclick = function(){
-					if(a3>0){
-						a3--;
-						ospa[2].innerHTML=a3+"件"
-						oinp[2].value= jisuan(a3,12);
-					}
-					return a3;
-				}
-				obutt[5].onclick = function(){
-					a3++;
-					ospa[2].innerHTML=a3+"件"
-						oinp[2].value= jisuan(a3,12);
-						return a3;
-				}
-//				4
-				obutt[6].onclick = function(){
-					if(a4>0){
-						a4--;
-						ospa[3].innerHTML=a4+"件"
-						oinp[3].value= jisuan(a4,8);
-					}
-					return a4;
-				}
-				obutt[7].onclick = function(){
-					a4++;
-					ospa[3].innerHTML=a4+"件"
-						oinp[3].value= jisuan(a4,8);
-						return a4;
-				}
-//				5
-				obutt[8].onclick = function(){
-					if(a5>0){
-						a5--;
-						ospa[4].innerHTML=a5+"件"
-						oinp[4].value= jisuan(a5,7);
-					}
-					return a5;
-				}
-				obutt[9].onclick = function(){
-					a5++;
-					ospa[4].innerHTML=a5+"件"
-						oinp[4].value= jisuan(a5,7);
-						return a5;
-				}
-				console.log(oinp[0].value);
-				
-				this.onclick = function (){
-					oinp[5].value = a1+a2+a3+a4+a5;
-					oinp[6].value = a1*4+a2*34+a3*12+a4*8+a5*7;
-				}
-				
-//				小计计算函数
-				function jisuan(a,b){
-					return a*b;
-				}
+				var dd=otext.value;
+				ock.innerHTML += "<img class='tx"+(i%2+1)+"' src='img/qq"+(i%2+1)+".gif'/><span class='le"+(i%2+1)+"'>"+dd+"</span>";
+				otext.value = "";
 			}
+			//点击切换图片事件
+			var oImg = document.getElementsByClassName("qh")[0];
+			var flag = true;
+//				3.绑定点击事件切换图标
+			oImg.onclick = function(){
+				i++;
+//				console.log(i);
+//					4.切换头像
+//						4-1判断当前头像
+				if(flag){
+					
+					this.src = "img/qq2.gif";
+					
+				}else{
+					
+					this.src = "img/qq1.gif";						
+					
+				}
+				
+//					5.flag取反
+				flag = !flag;
+					
+					
+			}
+			
+			
+//			双击按钮开机事件
+			var okjbj =document.querySelector("#kjbj");
+			var oann = document.querySelector("#ann");
+			var oltjm = document.querySelector("#ltjm");
+			var okaiji = document.querySelector("#kaiji");
+			oann.ondblclick=function(){
+
+				okjbj.style.display="none";
+				
+				okaiji.style.display="inline-block"
+				
+				var obox = document.querySelector("#box1");
+				var b = 0;
+//				clearInterval(timer2);
+				timer2 = setInterval(function(){
+					b++;
+					obox.style.backgroundPosition = b+"px 0, -100px -100px";
+					
+					if(b==400){
+						oltjm.style.display="inline-block";
+						okaiji.style.display="none";
+					}
+				},10);
+			}
+			
+//				2.获取元素
+				var orqsj = document.getElementById("rqsj");
+				var obox2 = document.querySelector("#box2");
+ //				3.设置定时器
+				var timer = null;
+				var num = 0;
+				var a= 0;
+				clearInterval(timer);	//定时器1(可替换为延时器1)
+//				clearTimeout(timer);	//延时器1
+				
+				timer = setInterval(getNowTime,1000);	//定时器2(可替换为延时器2)
+				
+//				clearInterval(timer1);
+				timer1 = setInterval(function(){
+					a+=10;
+					obox2.style.transform="rotate("+a+"deg)";
+				},100);
+				function getNowTime(){
+					
+//					timer = setTimeout(getNowTime,1000);	//延时器2
+					
+//					console.log(num++);
+					
+//					4.获取当前时间
+					var today = new Date();
+
+//					--获取年份
+					var oYear = today.getFullYear();	//2018
+
+//					--获取月份
+					var oMonth = today.getMonth()+1;	//10
+
+//					--获取日期
+					var oDate = today.getDate();	//24
+
+//					--获取星期
+					var oDay = today.getDay();   	//3
+
+//					--获取小时
+					var oHour = today.getHours();	//15
+
+//					--获取分钟
+					var oMinute = today.getMinutes();//27
+
+//					--获取秒
+					var oSecond = today.getSeconds();//39
+
+					//2018-10-24 星期三  15:33:25
+
+					var weekArr = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+
+					orqsj.innerHTML = addZero(oHour)+":"+addZero(oMinute)+":"+addZero(oSecond);
+					
+				}
+				getNowTime();
+				
+//				加零函数(由于某些情况会出现一位数字)
+				function addZero(num){
+					
+					if(num<10){
+						
+						return "0"+num;
+						
+					}else{
+						
+						return num;
+						
+					}
+					
+				}
+			
+		}
+			
 		</script>
 	</body>
 </html>
