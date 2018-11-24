@@ -3,88 +3,156 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<script type="text/javascript" src="jq/jquery.js"></script>
 		<style type="text/css">
-			*{
-				margin: 0;
-				padding: 0;
-			}
-			ul,li{
-				list-style: none;
-			}
-			.box:nth-child(1){
-				background: red;
-			}
-			.box:nth-child(2){
-				background: yellow;
-			}
-			.box:nth-child(3){
-				background: lightblue;
-			}
-			.box:nth-child(4){
-				background: lightgreen;
-			}
-			.box:nth-child(5){
-				background: lightpink;
-			}
-			ul{
-				position: fixed;
-				right: 20px;
-				bottom: 50%;
-				margin-bottom: -150px;
-			}
-			li{
-				width: 40px;
-				height: 40px;
-				border-radius: 50%;
-				background: #EEEEEE;
-				margin-bottom: 10px;
-			}
-			.active_btn{
-				background: black;
+			.box{
+				width: 600px;
+				height: 300px;
+				padding: 30px;
+				border: 1px solid red;
 			}
 		</style>
 	</head>
 	<body>
-		<div class="box">111</div>
-		<div class="box">222</div>
-		<div class="box">333</div>
-		<div class="box">444</div>
-		<div class="box">555</div>
-		<ul>
-			<li class="active_btn"></li>
-			<li></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
+		<div class="box">
+			<ul>
+				<li>
+					<button>-</button>
+					<span>0件</span>
+					<button>+</button>
+					4元  小计: <input type="text" name="" id="" value="" />
+				</li>
+				<li>
+					<button>-</button>
+					<span>0件</span>
+					<button>+</button>
+					34元  小计: <input type="text" name="" id="" value="" />
+				</li>
+				<li>
+					<button>-</button>
+					<span>0件</span>
+					<button>+</button>
+					12元  小计: <input type="text" name="" id="" value="" />
+				</li>
+				<li>
+					<button>-</button>
+					<span>0件</span>
+					<button>+</button>
+					8元  小计: <input type="text" name="" id="" value="" />
+				</li>
+				<li>
+					<button>-</button>
+					<span>0件</span>
+					<button>+</button>
+					7元  小计: <input type="text" name="" id="" value="" />
+				</li>
+			</ul>
+			<hr />
+			<button>商品总计</button>
+			<input type="text" name="" id="" value="" />
+			<button>商品总价</button>
+			<input type="text" name="" id="" value="" />
+		</div>
+		
+		
 		<script type="text/javascript">
-			$(function(){
-				$("div").each(function(i,ele){
-					$(ele).css("height",window.innerHeight);
-				})
+			window.onload= function(){
+				var obutt = document.getElementsByTagName("button");
+				var ospa = document.getElementsByTagName("span");
+				var oinp = document.getElementsByTagName("input");
+				var a1 = 0;
+				var a2 = 0;
+				var a3 = 0;
+				var a4 = 0;
+				var a5 = 0;
+				var c=0;
+//				1
+				obutt[0].onclick = function(){
+					if(a1>0){
+						a1--;
+						ospa[0].innerHTML=a1+"件"
+						oinp[0].value= jisuan(a1,4);
+					}
+					return a1;
+				}
+				obutt[1].onclick = function(){
+					a1++;
+					ospa[0].innerHTML=a1+"件"
+						oinp[0].value= jisuan(a1,4);
+						return a1;
+				}
+//				2
+				obutt[2].onclick = function(){
+					if(a2>0){
+						a2--;
+						ospa[1].innerHTML=a2+"件"
+						oinp[1].value= jisuan(a2,34);
+					}
+					return a2;
+				}
+				obutt[3].onclick = function(){
+					a2++;
+					ospa[1].innerHTML=a2+"件"
+						oinp[1].value= jisuan(a2,34);
+						c = oinp[1].value
+						return a2;
+				}
+//				3
+				obutt[4].onclick = function(){
+					if(a3>0){
+						a3--;
+						ospa[2].innerHTML=a3+"件"
+						oinp[2].value= jisuan(a3,12);
+					}
+					return a3;
+				}
+				obutt[5].onclick = function(){
+					a3++;
+					ospa[2].innerHTML=a3+"件"
+						oinp[2].value= jisuan(a3,12);
+						return a3;
+				}
+//				4
+				obutt[6].onclick = function(){
+					if(a4>0){
+						a4--;
+						ospa[3].innerHTML=a4+"件"
+						oinp[3].value= jisuan(a4,8);
+					}
+					return a4;
+				}
+				obutt[7].onclick = function(){
+					a4++;
+					ospa[3].innerHTML=a4+"件"
+						oinp[3].value= jisuan(a4,8);
+						return a4;
+				}
+//				5
+				obutt[8].onclick = function(){
+					if(a5>0){
+						a5--;
+						ospa[4].innerHTML=a5+"件"
+						oinp[4].value= jisuan(a5,7);
+					}
+					return a5;
+				}
+				obutt[9].onclick = function(){
+					a5++;
+					ospa[4].innerHTML=a5+"件"
+						oinp[4].value= jisuan(a5,7);
+						return a5;
+				}
+				console.log(oinp[0].value);
 				
-//				点击li切屏
-				$("li").each(function(i1,ele1){
-					$(this).click(function(){
-						$(window).scrollTop(i1*window.innerHeight);
-						$("li").removeClass();
-						$(this).addClass("active_btn");
-					})
-				})
-//				窗口滚动事件
-				$(window).scroll(function(){
-					var gundongH=$(window).scrollTop();
-//					用已经滚动高度/整屏高度   取整数得到切换下标
-					var myIndex = Math.round(gundongH/window.innerHeight);
-						$("li").removeClass();
-						$("li").eq(myIndex).addClass("active_btn");
-					
-				})
+				this.onclick = function (){
+					oinp[5].value = a1+a2+a3+a4+a5;
+					oinp[6].value = a1*4+a2*34+a3*12+a4*8+a5*7;
+				}
 				
-			})
-			
-			
+//				小计计算函数
+				function jisuan(a,b){
+					return a*b;
+				}
+			}
 		</script>
 	</body>
 </html>
